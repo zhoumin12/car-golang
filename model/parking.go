@@ -19,9 +19,27 @@ type JiaofeiRes struct {
 	Price   int       `json:"price"`
 }
 
-func GetParkingInfo() Parking {
-	info := Parking{Local: "三排一号", Info: []string{"1111", "22222", "33333"}}
-	return info
+func GetParkingInfo(keyword string) Parking {
+
+	for p, car := range ParkingMap {
+		if car == "" {
+			info := Parking{Local: p, Info: []string{"1111", "22222", "33333"}}
+			ParkingMap[p] = keyword
+			return info
+		}
+	}
+	return Parking{Local: ""}
+}
+
+func GetParking() []Parking {
+	var pk []Parking
+	for p, car := range ParkingMap {
+		if car != "" {
+			info := Parking{Local: p, Info: []string{"1111", "22222", "33333"}}
+			pk = append(pk, info)
+		}
+	}
+	return pk
 }
 
 func GetMyJiaofei() JiaofeiRes {
@@ -39,4 +57,14 @@ func GetMyJiaofei() JiaofeiRes {
 	jiaoFeiRes.Times = len(jiaofei)
 	jiaoFeiRes.Price = sum
 	return jiaoFeiRes
+}
+
+func GetSum() int {
+	var sum int
+	for _, car := range ParkingMap {
+		if car == "" {
+			sum++
+		}
+	}
+	return sum
 }

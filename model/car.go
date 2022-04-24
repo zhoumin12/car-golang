@@ -3,6 +3,7 @@ package model
 import "time"
 
 var CarMap = make(map[string]MyCar)
+var ParkingMap = make(map[string]string)
 
 //初始化数据
 func InitCar() {
@@ -10,6 +11,13 @@ func InitCar() {
 	car2 := MyCar{Vcid: "赣B41332", Carnumber: "赣B11332", Opdate: "2022年1月30日"}
 	CarMap["赣B11332"] = car1
 	CarMap["赣B41332"] = car2
+
+	ParkingMap["3排1号"] = ""
+	ParkingMap["1排1号"] = ""
+	ParkingMap["2排15号"] = ""
+	ParkingMap["6排1号"] = ""
+	ParkingMap["34排145号"] = ""
+	ParkingMap["21排5号"] = ""
 }
 
 //查看我的爱车
