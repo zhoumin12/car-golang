@@ -66,11 +66,11 @@ func Init() {
 	r.GET("/sendmessage", func(c *gin.Context) {
 		message := c.Query("message")
 		fmt.Println(message)
-		//err := model.SendMsg(message)
-		//if err != nil {
-		//	c.JSON(http.StatusInternalServerError, gin.H{"code": 500})
-		//	return
-		//}
+		err := model.SendMsg(message)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"code": 500})
+			return
+		}
 		c.JSON(http.StatusOK, gin.H{"code": 200, "data": "成功!"})
 	})
 
