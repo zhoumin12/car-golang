@@ -29,6 +29,11 @@ func Init() {
 	})
 
 	r.GET("/getmyjiaofei", func(c *gin.Context) {
+		t := c.Query("time")
+		if t != "2022-05" {
+			c.JSON(http.StatusOK, gin.H{"code": 200, "data": model.JiaofeiRes{}})
+			return
+		}
 		info := model.GetMyJiaofei()
 		c.JSON(http.StatusOK, gin.H{"code": 200, "data": info})
 	})
