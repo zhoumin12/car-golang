@@ -45,8 +45,8 @@ func GetParking() []Parking {
 func GetMyJiaofei() JiaofeiRes {
 	var jiaoFeiRes JiaofeiRes
 	var jiaofei []Jiaofei
-	info1 := Jiaofei{CarMoney: 12, CarNumber: "2022年1月30日", PaymentArea: "支付宝", PayTime: "11:22", StopTime: "12:22"}
-	info2 := Jiaofei{CarMoney: 15, CarNumber: "2022年2月12日", PaymentArea: "微信", PayTime: "15:22", StopTime: "16:12"}
+	info1 := Jiaofei{CarMoney: 12, CarNumber: "2022年5月20日", PaymentArea: "支付宝", PayTime: "16:22", StopTime: "18:42"}
+	info2 := Jiaofei{CarMoney: 15, CarNumber: "2022年5月14日", PaymentArea: "微信", PayTime: "14:22", StopTime: "15:12"}
 	jiaofei = append(jiaofei, info1)
 	jiaofei = append(jiaofei, info2)
 	var sum int
