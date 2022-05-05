@@ -13,8 +13,8 @@ import (
 func Init() {
 	model.Money = 190
 
-	info1 := model.Jiaofei{CarMoney: 12, CarNumber: "2022-04-05", PaymentArea: "支付宝", PayTime: "16:22", StopTime: "18:42"}
-	info2 := model.Jiaofei{CarMoney: 15, CarNumber: "2022-04-05", PaymentArea: "微信", PayTime: "14:22", StopTime: "15:12"}
+	info1 := model.Jiaofei{CarMoney: 12, CarNumber: "2022-05-01", PaymentArea: "支付宝", PayTime: "16:22", StopTime: "18:42"}
+	info2 := model.Jiaofei{CarMoney: 15, CarNumber: "2022-05-02", PaymentArea: "微信", PayTime: "14:22", StopTime: "15:12"}
 	model.JiaoFei = append(model.JiaoFei, info1)
 	model.JiaoFei = append(model.JiaoFei, info2)
 
