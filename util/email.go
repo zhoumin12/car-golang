@@ -7,7 +7,7 @@ import (
 
 func SendMail2Me(subject string, message string) error {
 	form := "1966233584@qq.com"
-	to := "1316787334@qq.com"
+	to := "1282860305@qq.com"
 	err := sendMail(form, to, subject, message)
 	if err != nil {
 		return err

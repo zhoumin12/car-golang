@@ -11,6 +11,13 @@ import (
 )
 
 func Init() {
+	model.Money = 190
+
+	info1 := model.Jiaofei{CarMoney: 12, CarNumber: "2022-04-05", PaymentArea: "支付宝", PayTime: "16:22", StopTime: "18:42"}
+	info2 := model.Jiaofei{CarMoney: 15, CarNumber: "2022-04-05", PaymentArea: "微信", PayTime: "14:22", StopTime: "15:12"}
+	model.JiaoFei = append(model.JiaoFei, info1)
+	model.JiaoFei = append(model.JiaoFei, info2)
+
 	r := gin.Default()
 	r.GET("/parkinginfo", func(c *gin.Context) {
 		keyword := c.Query("keyword")
@@ -82,6 +89,19 @@ func Init() {
 	r.GET("/getnum", func(c *gin.Context) {
 		sum := model.GetSum()
 		c.JSON(http.StatusOK, gin.H{"code": 200, "data": sum})
+	})
+
+	r.GET("/addjiaofei", func(c *gin.Context) {
+		test := fmt.Sprintf("%s", time.Now().UTC())
+		model.JiaoFei = append(model.JiaoFei, model.Jiaofei{
+			CarNumber:   test[:10],
+			CarMoney:    13,
+			PaymentArea: "现金",
+			PayTime:     test[11:16],
+			StopTime:    test[11:16],
+		})
+		model.Money -= 13
+		c.JSON(http.StatusOK, gin.H{"code": 200, "data": "ok"})
 	})
 
 	r.GET("/v1/startJob", func(c *gin.Context) {

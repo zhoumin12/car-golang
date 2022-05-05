@@ -40,3 +40,8 @@ func Test2(t *testing.T) {
 	util.SendMail2Me("提醒邮件", "提醒我吃饭")
 	fmt.Println("done")
 }
+
+func Test3(t *testing.T) {
+	test := fmt.Sprintf("%s", time.Now().UTC())
+	fmt.Println(test[11:16])
+}

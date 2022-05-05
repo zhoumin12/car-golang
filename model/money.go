@@ -1,5 +1,7 @@
 package model
 
+var Money int
+
 type MoneyCard struct {
 	Name string `json:"car_number"`
 	Sum  int    `json:"car_money"`
@@ -16,5 +18,5 @@ type MyCarRes struct {
 }
 
 func GetMyMoney() MoneyCard {
-	return MoneyCard{Name: "余额", Sum: 190}
+	return MoneyCard{Name: "余额", Sum: Money}
 }

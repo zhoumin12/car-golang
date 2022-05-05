@@ -1,5 +1,7 @@
 package model
 
+var JiaoFei []Jiaofei
+
 type Parking struct {
 	Info  []string `json:"info"`
 	Local string   `json:"local"`
@@ -44,17 +46,12 @@ func GetParking() []Parking {
 
 func GetMyJiaofei() JiaofeiRes {
 	var jiaoFeiRes JiaofeiRes
-	var jiaofei []Jiaofei
-	info1 := Jiaofei{CarMoney: 12, CarNumber: "2022年5月20日", PaymentArea: "支付宝", PayTime: "16:22", StopTime: "18:42"}
-	info2 := Jiaofei{CarMoney: 15, CarNumber: "2022年5月14日", PaymentArea: "微信", PayTime: "14:22", StopTime: "15:12"}
-	jiaofei = append(jiaofei, info1)
-	jiaofei = append(jiaofei, info2)
 	var sum int
-	for _, v := range jiaofei {
+	for _, v := range JiaoFei {
 		sum += v.CarMoney
 	}
-	jiaoFeiRes.Jiaofei = jiaofei
-	jiaoFeiRes.Times = len(jiaofei)
+	jiaoFeiRes.Jiaofei = JiaoFei
+	jiaoFeiRes.Times = len(JiaoFei)
 	jiaoFeiRes.Price = sum
 	return jiaoFeiRes
 }
