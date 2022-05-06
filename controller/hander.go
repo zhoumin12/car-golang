@@ -91,6 +91,17 @@ func Init() {
 		c.JSON(http.StatusOK, gin.H{"code": 200, "data": sum})
 	})
 
+	r.GET("/setmoney", func(c *gin.Context) {
+		money := c.Query("money")
+		fmt.Println("money", money)
+		m, err := strconv.Atoi(money)
+		if err != nil {
+			return
+		}
+		model.Money = m
+		c.JSON(http.StatusOK, gin.H{"code": 200, "data": "ok"})
+	})
+
 	r.GET("/addjiaofei", func(c *gin.Context) {
 		test := fmt.Sprintf("%s", time.Now().UTC())
 		model.JiaoFei = append(model.JiaoFei, model.Jiaofei{
