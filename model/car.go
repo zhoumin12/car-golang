@@ -12,7 +12,7 @@ func InitCar() {
 	CarMap["赣B11332"] = car1
 	CarMap["赣B41332"] = car2
 
-	ParkingMap["3排1号"] = ""
+	ParkingMap["3排3号"] = ""
 	ParkingMap["1排1号"] = ""
 	ParkingMap["2排15号"] = ""
 	ParkingMap["6排1号"] = ""
